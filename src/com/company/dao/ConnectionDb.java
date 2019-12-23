@@ -9,8 +9,7 @@ import java.sql.SQLException;
 public class  ConnectionDb extends Const {
     private static Connection dbConnection;
 
-    public static Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        System.out.println("dsfh");
+    public static Connection getDbConnection() throws ClassNotFoundException, SQLException {//..........................
         String connectionString = "jdbc:mysql://localhost:3306/catworld" +
                 "?verifyServerCertificate=false" +
                 "&useSSL=false" +
