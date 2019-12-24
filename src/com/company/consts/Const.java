@@ -1,6 +1,6 @@
 package com.company.consts;
 
-public class Const {//casfgnfgrasdew
+public class Const {//11111111111111111111111111111111111111111111111
     protected String dbhost="localhost";
     protected String dbport="3306";
     protected static String dbuser="root";
