@@ -1,6 +1,6 @@
 package com.company.consts;
 
-public class Const {//222222222222222222222222222222222222222222222
+public class Const {//333333333333333333333333333333333333333
     protected String dbhost="localhost";
     protected String dbport="3306";
     protected static String dbuser="root";
