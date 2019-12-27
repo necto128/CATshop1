@@ -7,14 +7,12 @@ import com.company.model.Cat;
 import java.sql.*;
 
 public class SearchCats {
-    private static  Statement st;
-    private static ResultSet rs;
+
 
     public static void searchCatsByid(int iD) throws SQLException {
-        Cat cat = new Cat();
+        Cat cat = new Cat();ResultSet rs;
 
-        try {
-            st = ConnectionDb.getDbConnection().createStatement();
+        try(Statement st= ConnectionDb.getDbConnection().createStatement();) {
             String Select = "SELECT *FROM " + Const.USER_TABLE + " WHERE id=" + iD;
 
             rs = st.executeQuery(Select);
@@ -35,10 +33,8 @@ public class SearchCats {
                 System.out.println(cat.toString());
             }
             System.out.println("///////////////////////////////////");
-        } catch (Exception e) {st.close();
-        } finally {
-            st.close();
-        }
+        } catch (Exception e) {}
+
 
 
     }

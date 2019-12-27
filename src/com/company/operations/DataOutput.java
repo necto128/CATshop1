@@ -7,13 +7,12 @@ import com.company.model.Cat;
 import java.sql.*;
 
 public class DataOutput {
-    private static Statement st;
-    private static ResultSet rs;
 
-    public static void dataOutput() throws SQLException {
-        Cat catClass = new Cat();
-        try {
-            st = ConnectionDb.getDbConnection().createStatement();
+
+    public static void dataOutput(){
+        Cat catClass = new Cat();ResultSet rs;
+        try(Statement st = ConnectionDb.getDbConnection().createStatement();) {
+
 
             String Select = "SELECT *FROM " + Const.USER_TABLE;
 
@@ -33,11 +32,9 @@ public class DataOutput {
                catClass.setGender(Gender);
                System.out.println(catClass.toString());
             }
-        } catch (Exception e) {st.close();
+        } catch (Exception e) {
         }
-        finally{
-            rs.close();
-        }
+
     }
 }
 

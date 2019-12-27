@@ -8,15 +8,14 @@ import java.sql.*;
 
 public class SearchfamilybyID {
 
-    private static ResultSet rs;
-    private static Statement st;
+
 
 
     public static void searchfamilyBYID(int iD, Cat cat) throws SQLException, ClassNotFoundException {
-
-        st = ConnectionDb.getDbConnection().createStatement();
+        ResultSet rs;
+        try(Statement st = ConnectionDb.getDbConnection().createStatement();) {
         String Select = "SELECT *FROM " + Const.USER_TABLE + " WHERE id=" + iD;
-        try {
+
 
             rs = st.executeQuery(Select);
 
@@ -29,15 +28,16 @@ public class SearchfamilybyID {
                 System.out.println(cat.toString());
             }
         } catch (Exception e) {
-            System.out.println("ошибка 4");st.close();
+            System.out.println("ошибка 4");
         }
     }
 
 
-    public static void SearchParents(int iD, Cat cat) throws SQLException {
+    public static void searchParents(int iD, Cat cat) throws SQLException {
+        ResultSet rs;
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE id=" + iD;
-        try {
-        st = ConnectionDb.getDbConnection().createStatement();
+        try(Statement st= ConnectionDb.getDbConnection().createStatement();) {
+
             rs = st.executeQuery(select);
 
             while (rs.next()) {
@@ -51,8 +51,8 @@ public class SearchfamilybyID {
                 System.out.println(write);
             }
        } catch (Exception e) {
-          System.out.println("ошибка 4.5");st.close();
-        }finally {st.close();}
+          System.out.println("ошибка 4.5");
+        }
 
     }
 

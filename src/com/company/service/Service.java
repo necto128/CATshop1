@@ -60,18 +60,12 @@ public class Service {
 
     public static void dataoutput() {
         DataOutput wrclass = new DataOutput();
-        try {
             wrclass.dataOutput();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         System.out.println();
     }
 
 
-    public static void searchCatsById() throws SQLException, ClassNotFoundException {
+    public static void searchCatsById() throws SQLException {
         int a11 = 0;
         while (true) {
             System.out.println("Ввведите id кота");
@@ -88,48 +82,37 @@ public class Service {
         }
     }
 
-    public static void familySearch() {
+    public static void familySearch() throws SQLException, ClassNotFoundException {
         int id = 0;
         Cat cat = new Cat();
         System.out.println("Введите id кота для поиска родителей");
         id = in.nextInt();
         in.nextLine();
         System.out.println("Сын");
-        try {
+
             SearchfamilybyID.searchfamilyBYID(id, cat);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
 
         System.out.println("Отец");
-        try {
-            SearchfamilybyID.SearchParents(cat.getIdDad(), cat);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
+            SearchfamilybyID.searchParents(cat.getIdDad(), cat);
+
+
 
         System.out.println("Мать");
-        try {
-            SearchfamilybyID.SearchParents(cat.getIdMam(), cat);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
+            SearchfamilybyID.searchParents(cat.getIdMam(), cat);
+
 
         System.out.println();
     }
 
-    public static void deleteCats() throws SQLException, ClassNotFoundException {
-        int id = 0;
+    public static void deleteCats()  {
+        Cat cat=new Cat();
         System.out.println("Введите id для удаления записи");
-        id = in.nextInt();
+        cat.setIdCat(in.nextInt());
         in.nextLine();
-        DeleteCats.deleteRecord(id);
+        DeleteCats.deleteRecord(cat);
     }
 
     public static void updateRecords() {
@@ -158,13 +141,10 @@ public class Service {
             cat.setGender("Ж");
         }
 
-        try {
-            UpdateRecords.updataCats(cat, idcat);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
+        UpdateRecords.updataCats(cat, idcat);
+
+
     }
 
     public static void exitApplication() {
