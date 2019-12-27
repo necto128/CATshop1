@@ -35,7 +35,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("");
-                    System.out.println("Вы ввели неподходящее значение");
+                    System.out.println("Вы ввели неподходящее значение ");
                     System.out.println("");
                     break;
             }
