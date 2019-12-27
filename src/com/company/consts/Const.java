@@ -2,12 +2,14 @@ package com.company.consts;
 
 public class Const {
 
-    protected static String dbuser="root";
-    protected static String dbpass="1";
+
+    public  String dbuser="root";
+    public  String dbpass="1";
 
     public static final String USER_TABLE = "cats";
     public static final String NAME_CAT ="name_cat";
     public static final String ID_DAD ="id_dad";
     public static final String ID_MAM ="id_mam";
     public static final String GENDER ="gender";
+
 }
