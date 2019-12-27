@@ -61,7 +61,7 @@ public class Service {
     public static void dataoutput() {
         DataOutput wrclass = new DataOutput();
         try {
-            wrclass.DataOutput();
+            wrclass.dataOutput();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -76,7 +76,7 @@ public class Service {
         while (true) {
             System.out.println("Ввведите id кота");
             int id1 = in.nextInt();
-            SearchCats.SearchCatsByid(id1);
+            SearchCats.searchCatsByid(id1);
             System.out.println("Желаете продолжить/1-da||2-net");
             a11 = in.nextInt();
             if (a11 == 2) {
@@ -96,7 +96,7 @@ public class Service {
         in.nextLine();
         System.out.println("Сын");
         try {
-            SearchfamilybyID.SearchfamilyBYID(id, cat);
+            SearchfamilybyID.searchfamilyBYID(id, cat);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -129,7 +129,7 @@ public class Service {
         System.out.println("Введите id для удаления записи");
         id = in.nextInt();
         in.nextLine();
-        DeleteCats.DeleteRecord(id);
+        DeleteCats.deleteRecord(id);
     }
 
     public static void updateRecords() {
@@ -159,7 +159,7 @@ public class Service {
         }
 
         try {
-            UpdateRecords.UpdataCats(cat, idcat);
+            UpdateRecords.updataCats(cat, idcat);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

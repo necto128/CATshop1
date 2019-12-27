@@ -13,7 +13,7 @@ public class SearchfamilybyID {
     private static Statement st;
 
 
-    public static void SearchfamilyBYID(int iD, Cat cat) throws SQLException, ClassNotFoundException {
+    public static void searchfamilyBYID(int iD, Cat cat) throws SQLException, ClassNotFoundException {
 
         st = ConnectionDb.getDbConnection().createStatement();
         String Select = "SELECT *FROM " + Const.USER_TABLE + " WHERE id=" + iD;

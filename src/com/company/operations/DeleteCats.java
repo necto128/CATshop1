@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class DeleteCats {
 
-    public static void DeleteRecord(int iD) throws SQLException, ClassNotFoundException {
+    public static void deleteRecord(int iD) {
 
         try (Statement prSt = ConnectionDb.getDbConnection().createStatement();) {
             String delete = "DELETE FROM " + Const.USER_TABLE + " WHERE id=" + iD;

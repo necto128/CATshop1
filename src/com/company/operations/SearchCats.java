@@ -11,7 +11,7 @@ public class SearchCats {
     private static ResultSet rs;
 
     ConnectionDb connDb = new ConnectionDb();
-    public static void SearchCatsByid(int iD) throws SQLException, ClassNotFoundException {
+    public static void searchCatsByid(int iD) throws SQLException, ClassNotFoundException {
         Cat cat = new Cat();
 
         try {
