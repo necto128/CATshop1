@@ -10,7 +10,6 @@ public class SearchCats {
     private static  Statement st;
     private static ResultSet rs;
 
-    ConnectionDb connDb = new ConnectionDb();
     public static void searchCatsByid(int iD) throws SQLException {
         Cat cat = new Cat();
 
