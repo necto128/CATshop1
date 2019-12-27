@@ -49,7 +49,7 @@ public class Service {
             cat.setIdDad(idMam);
             cat.setGender(Gender);
 
-            AddCats.AddRecords(cat);
+            AddCats.addRecords(cat);
 
             System.out.println("Запись добавлена");
             System.out.println("////////////////////////////");
