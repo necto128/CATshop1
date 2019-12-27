@@ -35,7 +35,7 @@ public class SearchfamilybyID {
     }
 
 
-    public static void SearchParents(int iD, Cat cat) throws SQLException, ClassNotFoundException {
+    public static void SearchParents(int iD, Cat cat) throws SQLException {
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE id=" + iD;
         try {
         st = ConnectionDb.getDbConnection().createStatement();
