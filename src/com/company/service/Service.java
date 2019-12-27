@@ -167,7 +167,7 @@ public class Service {
         }
     }
 
-    public static void ExitApplication() {
+    public static void exitApplication() {
         System.out.println("Канец программы");
         in.close();
         System.exit(0);
