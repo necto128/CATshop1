@@ -36,10 +36,10 @@ public class SearchfamilybyID {
 
 
     public static void SearchParents(int iD, Cat cat) throws SQLException, ClassNotFoundException {
-        String Select = "SELECT *FROM " + Const.USER_TABLE + " WHERE id=" + iD;
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE id=" + iD;
         try {
         st = ConnectionDb.getDbConnection().createStatement();
-            rs = st.executeQuery(Select);
+            rs = st.executeQuery(select);
 
             while (rs.next()) {
                 String write="Cat{ " +
