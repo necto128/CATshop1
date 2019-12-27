@@ -12,7 +12,7 @@ public class UpdateRecords extends  Const {
         ConnectionDb connDb = new ConnectionDb();
    try(Statement st=connDb.getDbConnection().createStatement();){
 
-        //String updata = "UPDATE "+ Const.USER_TABLE+" set name_cat="+cat.getNameCat()+",id_dad="+cat.getIdDad()+",id_mam="+cat.getIdMam()+",gender="+cat.getGender()+" WHERE id="+idrecord;
+
       String updata = "UPDATE "+ Const.USER_TABLE+" set name_cat='"+cat.getNameCat()+"',id_dad='"+cat.getIdDad()+"',id_mam='"+cat.getIdMam()+"',gender='"+cat.getGender()+"' WHERE id="+idrecord;
         st.executeUpdate(updata);
 

@@ -22,14 +22,14 @@ public class DataOutput {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name_cat = rs.getString("name_cat");
-                int id_dad = rs.getInt("id_dad");
-                int id_mam = rs.getInt("id_mam");
+                int iddad = rs.getInt("id_dad");
+                int idmam = rs.getInt("id_mam");
                 String Gender = rs.getString("gender");
 
                 catClass.setIdCat(id);
                 catClass.setNameCat(name_cat);
-                catClass.setIdMam(id_dad);
-                catClass.setIdDad(id_mam);
+                catClass.setIdMam(iddad);
+                catClass.setIdDad(idmam);
                catClass.setGender(Gender);
                System.out.println(catClass.toString());
             }

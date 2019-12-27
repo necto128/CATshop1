@@ -23,14 +23,14 @@ public class SearchCats {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name_cat = rs.getString("name_cat");
-                int id_dad = rs.getInt("id_dad");
-                int id_mam = rs.getInt("id_mam");
+                int iddad = rs.getInt("id_dad");
+                int idmam = rs.getInt("id_mam");
                 String Gender = rs.getString("gender");
 
                 cat.setIdCat(id);
                 cat.setNameCat(name_cat);
-                cat.setIdDad(id_dad);
-                cat.setIdMam(id_mam);
+                cat.setIdDad(iddad);
+                cat.setIdMam(idmam);
                 cat.setGender(Gender);
 
                 System.out.println(cat.toString());

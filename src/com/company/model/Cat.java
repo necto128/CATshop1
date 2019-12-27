@@ -1,42 +1,42 @@
 package com.company.model;
 
 public class Cat {
-    private int IdCat;
-    private String NameCat;
-    private int IdDad;
-    private int IdMam;
+    private int idCat;
+    private String nameCat;
+    private int idDad;
+    private int idMam;
     private String gender;
 
     public int getIdCat() {
-        return IdCat;
+        return idCat;
     }
 
     public void setIdCat(int idCat) {
-        this.IdCat = idCat;
+        this.idCat = idCat;
     }
 
     public String getNameCat() {
-        return NameCat;
+        return nameCat;
     }
 
     public void setNameCat(String nameCat) {
-        this.NameCat = nameCat;
+        this.nameCat = nameCat;
     }
 
     public int getIdDad() {
-        return IdDad;
+        return idDad;
     }
 
     public void setIdDad(int idDad) {
-        this.IdDad = idDad;
+        this.idDad = idDad;
     }
 
     public int getIdMam() {
-        return IdMam;
+        return idMam;
     }
 
     public void setIdMam(int idMam) {
-        this.IdMam = idMam;
+        this.idMam = idMam;
     }
 
     public String getGender() {
@@ -49,14 +49,14 @@ public class Cat {
 
     @Override
     public String toString() {
-        if (IdCat == 0) {
+        if (idCat == 0) {
             return "Запись не найдена";
         } else {
             return "Cat{ " +
-                    "Id Кота=" + IdCat +
-                    ", Имя='" + NameCat + '\'' +
-                    ", Id Отца=" + IdDad +
-                    ", Id Матери=" + IdMam +
+                    "Id Кота=" + idCat +
+                    ", Имя='" + nameCat + '\'' +
+                    ", Id Отца=" + idDad +
+                    ", Id Матери=" + idMam +
                     ", пол='" + gender + '\'' +
                     " }";
         }
