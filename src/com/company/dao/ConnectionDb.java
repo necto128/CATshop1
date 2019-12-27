@@ -11,6 +11,7 @@ public class ConnectionDb  {
 
     public static Connection getDbConnection() throws ClassNotFoundException, SQLException {
         Const cons1t =new Const();
+        if(dbConnection!=null && !dbConnection.isClosed()) return  dbConnection;
         String connectionString = "jdbc:mysql://localhost:3306/catworld" +
                 "?verifyServerCertificate=false" +
                 "&useSSL=false" +

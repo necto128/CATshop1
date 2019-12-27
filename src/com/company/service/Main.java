@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) throws  SQLException, ClassNotFoundException {
         while (true) {
             Service.menucall();
-            String X1 = in.nextLine();
-            switch (X1) {
+            String write = in.nextLine();
+            switch (write) {
                 case "1":
                     Service.dataoutput();
                     break;
