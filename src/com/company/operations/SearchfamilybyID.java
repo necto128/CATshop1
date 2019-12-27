@@ -8,7 +8,6 @@ import java.sql.*;
 
 public class SearchfamilybyID {
 
-    Connection dbConnection;
     private static ResultSet rs;
     private static Statement st;
 
