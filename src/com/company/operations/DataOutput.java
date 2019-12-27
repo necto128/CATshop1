@@ -10,7 +10,7 @@ public class DataOutput {
     private static Statement st;
     private static ResultSet rs;
 
-    public static void dataOutput() throws SQLException, ClassNotFoundException {
+    public static void dataOutput() throws SQLException {
         Cat catClass = new Cat();
         try {
             st = ConnectionDb.getDbConnection().createStatement();

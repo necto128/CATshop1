@@ -8,7 +8,7 @@ public class UpdateRecords extends  Const {
 
 
 
-    public static void updataCats(Cat cat, int idrecord) throws SQLException, ClassNotFoundException {
+    public static void updataCats(Cat cat, int idrecord) {
         ConnectionDb connDb = new ConnectionDb();
    try(Statement st=connDb.getDbConnection().createStatement();){
 
