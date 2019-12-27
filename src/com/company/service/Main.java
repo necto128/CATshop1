@@ -1,6 +1,5 @@
 package com.company.service;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -8,31 +7,31 @@ import java.util.Scanner;
 public class Main {
     static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws  SQLException, ClassNotFoundException {
         while (true) {
             Service.menucall();
             String X1 = in.nextLine();
             switch (X1) {
                 case "1":
-                    Service.Dataoutput();
+                    Service.dataoutput();
                     break;
                 case "2":
                     Service.addCat();
                     break;
                 case "3":
-                    Service.SearchCatsById();
+                    Service.searchCatsById();
                     break;
                 case "4":
-                    Service.FamilySearch();
+                    Service.familySearch();
                     break;
                 case "5":
-                    Service.DeleteCats();
+                    Service.deleteCats();
                     break;
                 case "6":
-                    Service.UpdateRecords();
+                    Service.updateRecords();
                     break;
                 case "7":
-                    Service.ExitApplication();
+                    Service.exitApplication();
                     break;
                 default:
                     System.out.println("");

@@ -58,7 +58,7 @@ public class Service {
         }
     }
 
-    public static void Dataoutput() {
+    public static void dataoutput() {
         DataOutput wrclass = new DataOutput();
         try {
             wrclass.DataOutput();
@@ -71,7 +71,7 @@ public class Service {
     }
 
 
-    public static void SearchCatsById() throws SQLException, ClassNotFoundException {
+    public static void searchCatsById() throws SQLException, ClassNotFoundException {
         int a11 = 0;
         while (true) {
             System.out.println("Ввведите id кота");
@@ -88,7 +88,7 @@ public class Service {
         }
     }
 
-    public static void FamilySearch() {
+    public static void familySearch() {
         int id = 0;
         Cat cat = new Cat();
         System.out.println("Введите id кота для поиска родителей");
@@ -124,7 +124,7 @@ public class Service {
         System.out.println();
     }
 
-    public static void DeleteCats() throws SQLException, ClassNotFoundException {
+    public static void deleteCats() throws SQLException, ClassNotFoundException {
         int id = 0;
         System.out.println("Введите id для удаления записи");
         id = in.nextInt();
@@ -132,7 +132,7 @@ public class Service {
         DeleteCats.DeleteRecord(id);
     }
 
-    public static void UpdateRecords() {
+    public static void updateRecords() {
 
         Cat cat = new Cat();
 
