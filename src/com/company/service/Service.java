@@ -1,6 +1,6 @@
 package com.company.service;
 
-import com.company.operations.*;
+import com.company.dao.CatDAO;
 import com.company.model.Cat;
 
 import java.sql.SQLException;
@@ -36,18 +36,9 @@ public class Service {
             System.out.println("Ввведите ид матери или '00'");
             idMam = in.nextInt();
 
+            Cat cat = new Cat(nameCat, idDad, idMam);
 
-            System.out.println("Выберите пол 1-Мужской или 2-Женский");
-            int write = in.nextInt();
-            in.nextLine();
-            if (write == 1) {
-                Gender = "М";
-            } else {
-                Gender = "Ж";
-            }
-            Cat cat = new Cat(nameCat, idDad, idMam, Gender);
-
-            AddCats.addRecords(cat);
+            CatDAO.addRecords(cat);
 
             System.out.println("Запись добавлена");
             System.out.println("////////////////////////////");
@@ -57,45 +48,52 @@ public class Service {
     }
 
     public static void dataoutput() throws SQLException, ClassNotFoundException {
-        DataOutput.dataOutput();
+        CatDAO.dataOutput();
         System.out.println();
     }
 
 
-    public static void searchCatsById() throws SQLException {
-        while (true) {
-            int write = 0;
-            System.out.println("Ввведите id кота");
-            int id1 = in.nextInt();
-            SearchCats.searchCatsByid(id1);
-            System.out.println("Желаете продолжить/1-da||2-net");
-            write = in.nextInt();
-            if (write == 2) {
-                System.out.println("Поиск окончен\n");
-                break;
-            } else {
-                System.out.println("Поиск продолжен");
+    public static void searchCatsById() {
+        Cat cat = new Cat();
+        try {
+            while (true) {
+                int write = 0;
+                System.out.println("Ввведите id кота");
+                cat.setIdCat(in.nextInt());
+                CatDAO.searchCatsByid(cat);
+                System.out.println("Желаете продолжить/1-da||2-net");
+                write = in.nextInt();
+                if (write == 2) {
+                    System.out.println("Поиск окончен\n");
+                    break;
+                } else {
+                    System.out.println("Поиск продолжен");
+                }
             }
+        } catch (Exception e) {
+            System.out.println("ошибка 3");
         }
     }
 
     public static void familySearch() throws SQLException, ClassNotFoundException {
-        int id = 0;
         Cat cat = new Cat();
-        System.out.println("Введите id кота для поиска родителей");
-        id = in.nextInt();
-        in.nextLine();
+        try {
+            System.out.println("Введите id кота для поиска родителей");
+            cat.setIdCat(in.nextInt());
+            in.nextLine();
 
-        System.out.println("Сын");
-        SearchfamilybyID.searchfamilyBYID(id, cat);
+            System.out.println("Сын");
+            CatDAO.searchfamilyBYID(cat);
 
-        System.out.println("Отец");
-        SearchfamilybyID.searchParents(cat.getIdDad(), cat);
+            System.out.println("Отец");
+            CatDAO.searchParents(cat.getIdDad());
 
-        System.out.println("Мать");
-        SearchfamilybyID.searchParents(cat.getIdMam(), cat);
+            System.out.println("Мать");
+            CatDAO.searchParents(cat.getIdMam());
 
-
+        } catch (Exception e) {
+            System.out.println("Ошибка 4");
+        }
         System.out.println();
     }
 
@@ -104,7 +102,7 @@ public class Service {
         System.out.println("Введите id для удаления записи");
         cat.setIdCat(in.nextInt());
         in.nextLine();
-        DeleteCats.deleteRecord(cat);
+        CatDAO.deleteRecord(cat);
     }
 
     public static void updateRecords() {
@@ -134,7 +132,7 @@ public class Service {
             Gender = "Ж";
         }
         Cat cat = new Cat(idcat, nameCat, idDad, idMam, Gender);
-        UpdateRecords.updataCats(cat);
+        CatDAO.updataCats(cat);
 
 
     }

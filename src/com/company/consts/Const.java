@@ -2,7 +2,6 @@ package com.company.consts;
 
 public class Const {
 
-
     public  String dbuser="root";
     public  String dbpass="1";
 
