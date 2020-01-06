@@ -7,18 +7,18 @@ public class Cat {
     private int idMam;
     private String gender;
 
-    public Cat(int idCat, String nameCat, int idDad, int idMam, String gender) {
+    public Cat(int idCat, String nameCat, int idDad, int idMam) {
         this.idCat = idCat;
         this.nameCat = nameCat;
         this.idDad = idDad;
         this.idMam = idMam;
-        this.gender = gender;
     }
 
-    public Cat(String nameCat, int idDad, int idMam) {
+    public Cat(String nameCat, int idDad, int idMam, String gender) {
         this.nameCat = nameCat;
         this.idDad = idDad;
         this.idMam = idMam;
+        this.gender = gender;
     }
 
     public Cat() {

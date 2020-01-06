@@ -11,7 +11,7 @@ public class Service {
     static Scanner in = new Scanner(System.in);
 
 
-    public static void menucall() {
+    public static void callMenu() {
         System.out.println("Вывод всех данных->1");
         System.out.println("Ввод даных->2");
         System.out.println("поиск->3");
@@ -23,7 +23,7 @@ public class Service {
 
     public static void addCat() {
         String nameCat = "";
-        String Gender = "";
+        String gender = "";
         int idDad = 0, idMam = 0;
         try {
 
@@ -36,7 +36,15 @@ public class Service {
             System.out.println("Ввведите ид матери или '00'");
             idMam = in.nextInt();
 
-            Cat cat = new Cat(nameCat, idDad, idMam);
+            System.out.println("Выберите пол 1-Мужской или 2-Женский");
+            int o = in.nextInt();
+            in.nextLine();
+            if (o == 1) {
+                gender = "М";
+            } else {
+                gender = "Ж";
+            }
+            Cat cat = new Cat(nameCat, idDad, idMam, gender);
 
             CatDAO.addRecords(cat);
 
@@ -47,8 +55,8 @@ public class Service {
         }
     }
 
-    public static void dataoutput() throws SQLException, ClassNotFoundException {
-        CatDAO.dataOutput();
+    public static void dataOutPut() throws SQLException, ClassNotFoundException {
+        CatDAO.printCats();
         System.out.println();
     }
 
@@ -75,7 +83,7 @@ public class Service {
         }
     }
 
-    public static void familySearch() throws SQLException, ClassNotFoundException {
+    public static void familySearch() {
         Cat cat = new Cat();
         try {
             System.out.println("Введите id кота для поиска родителей");
@@ -123,15 +131,7 @@ public class Service {
         System.out.println("Ввведите ид матери или '00'");
         idMam = in.nextInt();
 
-        System.out.println("Выберите пол 1-Мужской или 2-Женский");
-        int o = in.nextInt();
-        in.nextLine();
-        if (o == 1) {
-            Gender = "М";
-        } else {
-            Gender = "Ж";
-        }
-        Cat cat = new Cat(idcat, nameCat, idDad, idMam, Gender);
+        Cat cat = new Cat(idcat, nameCat, idDad, idMam);
         CatDAO.updataCats(cat);
 
 

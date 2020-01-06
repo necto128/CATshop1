@@ -6,12 +6,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionDb  {
+public class ConnectionDb {
     private static Connection dbConnection;
 
     public static Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        Const cons1t =new Const();
-        if(dbConnection!=null && !dbConnection.isClosed()) return  dbConnection;
+        if (dbConnection != null && !dbConnection.isClosed()) return dbConnection;
         String connectionString = "jdbc:mysql://localhost:3306/catworld" +
                 "?verifyServerCertificate=false" +
                 "&useSSL=false" +
@@ -20,7 +19,7 @@ public class ConnectionDb  {
                 "&amp" +
                 "&serverTimezone=UTC";
         Class.forName("com.mysql.cj.jdbc.Driver");
-        dbConnection = DriverManager.getConnection(connectionString, cons1t.dbuser, cons1t.dbpass);
+        dbConnection = DriverManager.getConnection(connectionString, Const.DBUSER, Const.DBPASS);
         return dbConnection;
     }
 }

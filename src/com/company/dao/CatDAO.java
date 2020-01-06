@@ -28,36 +28,33 @@ public class CatDAO {
 
     ///////////////////////////////ВЫВОД ЗАПИСЕЙ
 
-    public static void dataOutput() throws SQLException, ClassNotFoundException {
+    public static ArrayList<String> dataOutput() throws SQLException, ClassNotFoundException {
         ResultSet rs;
+        ArrayList<String> cats = new ArrayList<>();
         try ( Statement st = ConnectionDb.getDbConnection().createStatement(); ) {
 
             String Select = "SELECT *FROM " + Const.USER_TABLE;
 
             rs = st.executeQuery(Select);
-            ArrayList<String> cats = new ArrayList<>();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String namecat = rs.getString("name_cat");
-                int iddad = rs.getInt("id_dad");
-                int idmam = rs.getInt("id_mam");
-                String gender = rs.getString("gender");
-                Cat cat = new Cat(id, namecat, iddad, idmam, gender);
-                dataOutput(cat, cats);
-            }
-            printCats(cats);
-        }
 
+            while (rs.next()) {
+                cats.add("Cat{ " +
+                        "Id Кота=" + rs.getInt("id") +
+                        ", Имя='" + rs.getString("name_cat") + '\'' +
+                        ", Id Отца=" + rs.getInt("id_dad") +
+                        ", Id Матери=" + rs.getInt("id_mam") +
+                        ", пол='" + rs.getString("gender") + '\'' +
+                        " }");
+            }
+        }
+        return cats;
     }
 
-    public static void dataOutput(Cat cat, ArrayList<String> cats) {
-        cats.add("Cat{ " +
-                "Id Кота=" + cat.getIdCat() +
-                ", Имя='" + cat.getNameCat() + '\'' +
-                ", Id Отца=" + cat.getIdDad() +
-                ", Id Матери=" + cat.getIdMam() +
-                ", пол='" + cat.getGender() + '\'' +
-                " }");
+    public static void printCats() throws SQLException, ClassNotFoundException {
+        ArrayList<String> cats = dataOutput();
+        for (String s : cats) {
+            System.out.println(s);
+        }
     }
 
     public static void printCats(ArrayList<String> cats) {
@@ -92,13 +89,13 @@ public class CatDAO {
             ArrayList<String> cats = new ArrayList<>();
             while (rs.next()) {
                 id = rs.getInt("id");
-                String namecat = rs.getString("name_cat");
-                int iddad = rs.getInt("id_dad");
-                int idmam = rs.getInt("id_mam");
-                String gender = rs.getString("gender");
-                Cat cat1 = new Cat(id, namecat, iddad, idmam, gender);
-                dataOutput(cat1, cats);
-
+                cats.add("Cat{ " +
+                        "Id Кота=" + rs.getInt("id") +
+                        ", Имя='" + rs.getString("name_cat") + '\'' +
+                        ", Id Отца=" + rs.getInt("id_dad") +
+                        ", Id Матери=" + rs.getInt("id_mam") +
+                        ", пол='" + rs.getString("gender") + '\'' +
+                        " }");
             }
             if (id == 0) {
                 System.out.println("Запись не найдена");
@@ -121,12 +118,15 @@ public class CatDAO {
             rs = st.executeQuery(Select);
             ArrayList<String> cats = new ArrayList<>();
             while (rs.next()) {
-                cat.setIdCat(rs.getInt("id"));
-                cat.setNameCat(rs.getString("name_cat"));
                 cat.setIdMam(rs.getInt("id_dad"));
                 cat.setIdDad(rs.getInt("id_mam"));
-                cat.setGender(rs.getString("gender"));
-                dataOutput(cat, cats);
+                cats.add("Cat{ " +
+                        "Id Кота=" + rs.getInt("id") +
+                        ", Имя='" + rs.getString("name_cat") + '\'' +
+                        ", Id Отца=" + rs.getInt("id_dad") +
+                        ", Id Матери=" + rs.getInt("id_mam") +
+                        ", пол='" + rs.getString("gender") + '\'' +
+                        " }");
             }
             printCats(cats);
         } catch (Exception e) {

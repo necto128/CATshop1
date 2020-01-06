@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Main {
     static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) throws  SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         while (true) {
-            Service.menucall();
+            Service.callMenu();
             String write = in.nextLine();
             switch (write) {
                 case "1":
-                    Service.dataoutput();
+                    Service.dataOutPut();
                     break;
                 case "2":
                     Service.addCat();
